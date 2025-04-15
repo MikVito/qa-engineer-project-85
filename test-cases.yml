@@ -27,8 +27,9 @@
   requirement: |
     Пользователь должен иметь возможность войти в аккаунт с корректными данными
   prerequisites: |
-    Зарегистрированный пользователь с email = johnjohnson@hotmail.com  и паролем = badjonh@0011
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта URL https://codebattle.hexlet.io/
+    Зарегистрированный пользователь с email = johnjohnson@hotmail.com  и паролем = badjonh@0011
   test-data: |
     Email = john@example.com
     Password = badjonh@0011
@@ -47,6 +48,7 @@
   requirement: |
     Авторизированный пользователь должен иметь доступ к созданию игры
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Пользователь успешно вошёл в аккаунт
     Открыта главная страница сайта URL https://codebattle.hexlet.io/
   test-data: |
@@ -61,6 +63,7 @@
   requirement: |
     При вводе неправильных данных должна отображаться ошибка
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Зарегистрированный пользователь с email = johnjohnson@hotmail.com
     Открыта главная страница сайта URL https://codebattle.hexlet.io/
   test-data: |
@@ -80,6 +83,7 @@
   requirement: |
     При вводе неправильных данных должна отображаться ошибка
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Зарегистрированный пользователь с email = johnjohnson@hotmail.com
     Открыта главная страница сайта URL https://codebattle.hexlet.io/
   test-data: |
@@ -99,6 +103,7 @@
   requirement: |
     Форма входа не должна приниматься с пустыми полями
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта URL https://codebattle.hexlet.io/
   test-data: |
     Email = ""
@@ -115,6 +120,7 @@
   requirement: |
     Пользователь должен иметь возможность авторизоваться через GitHub
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Пользователь имеет аккаунт на GitHub
     Открыта главная страница https://codebattle.hexlet.io/
   test-data: |
@@ -132,6 +138,7 @@
   requirement: |
     Не зарегистрированные пользователи должны иметь возможность тестовой игры
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта https://codebattle.hexlet.io/
     Пользователь не авторизован и не зарегистрирован
   test-data: |
@@ -149,8 +156,9 @@
   requirement: |
     Пользователь должен иметь возможность создавать игру
   prerequisites: |
-    Пользователь авторизован
-    Открыта главная страница
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Пользователь не авторизован и не зарегистрирован
   test-data: |
     Game Type = With bot
     Difficulty = Easy
@@ -170,7 +178,8 @@
   requirement: |
     Пользователь должен иметь возможность участвовать в игре
   prerequisites: |
-    Пользователь авторизован
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Пользователь авторизован и не зарегистрирован
     Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     empty
@@ -186,6 +195,7 @@
   requirement: |
     Пользователь должен иметь возможность участвовать в турнире
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта https://codebattle.hexlet.io/
     Пользователь не авторизован и не зарегистрирован
   test-data: |
@@ -202,6 +212,7 @@
   requirement: |
     Пользователь должен иметь возможность создать турнир с настройкой всех параметров
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта https://codebattle.hexlet.io/
     Пользователь не авторизован и не зарегистрирован
   test-data: |
@@ -247,6 +258,7 @@
   requirement: |
     На сайте должно отображаться количество участников онлайн
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Открыта главная страница сайта https://codebattle.hexlet.io/
     Пользователь не авторизован и не зарегистрирован
   test-data: |
@@ -261,6 +273,7 @@
   requirement: |
     Авторизованный пользователь должен иметь возможность отправлять сообщения в чат
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Пользователь авторизован
     Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
@@ -278,6 +291,7 @@
   requirement: |
     Авторизованный пользователь должен иметь возможность удалять сообщения из чата
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Пользователь авторизован
     Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
@@ -297,8 +311,9 @@
   requirement: |
     Пользователь должен иметь возможность создавать игру
   prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
     Пользователь авторизован
-    Открыта главная страница
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     Game Type = With bot
     Difficulty = Easy
@@ -313,3 +328,136 @@
     Игра успешно создается
     Пользователь попадает в интерфейс игры
     
+- summary: |
+    Проверка принудительного перенаправления с HTTP на HTTPS
+  requirement: |
+    Все запросы к сайту должны автоматически перенаправляться на защищённую версию (HTTPS)
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    URL = http://codebattle.hexlet.io/
+  steps:
+    - В адресной строке вручную ввести адрес сайта с http:// вместо https://
+    - Нажать Enter
+    - Наблюдать за поведением браузера
+  expected-result: |
+    Браузер автоматически перенаправляет на https://codebattle.hexlet.io/
+    В адресной строке отображается HTTPS
+
+- summary: |
+    Проверка, что пароль не отображается в адресной строке браузера
+  requirement: |
+    Личные данные не должны передаваться через URL
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта форма входа "Sing in" URL - https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    Email = johnjohnson@hotmail.com
+    Password = badjonh@0011
+  steps:
+    - Ввести email и пароль
+    - Нажать "Submit"
+    - Посмотреть адресную строку
+  expected-result: |
+    В URL нет данных Email и пароля
+    
+- summary: |
+    Проверка подтверждения email после регистрации
+  requirement: |
+    Пользователь должен подтвердить свой email, чтобы завершить регистрацию
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта форма регистрации "Sing UP" URL - https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    Доступ к тестовому почтовому ящику johnjohnson@hotmail.com
+  test-data: |
+    Email = johnjohnson@hotmail.com
+    Password = badjonh@0011
+  steps:
+    - Перейти на страницу регистрации
+    - Ввести NickName - John_Johnson
+    - Ввести email и пароль
+    - Отправить форму регистрации "Submit"
+    - Открыть почтовый ящик
+    - Перейти по ссылке из письма для подтверждения регистрации
+  expected-result: |
+    Учетная запись активируется
+    Пользователь может войти в систему
+
+- summary: |
+    Проверка, что сайт визуально загружается не дольше 3 секунд
+  requirement: |
+    Сайт должен быть оптимизирован для высокой скорости загрузки и отклика
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Устройство подключено к стабильному интернету
+  test-data: |
+    URL: https://codebattle.hexlet.io/
+  steps:
+    - Открыть DevTools (F12)
+    - Перейти на вкладку "Network"
+    - Отметить флажок "Disable cache"
+    - Убедиться, что в поле Throttling выбрано "No throttling"
+    - Обновить страницу (Ctrl+R)
+    - Наблюдать за метками внизу вкладки (Load, DOMContentLoaded)
+    - Зафиксировать общее время загрузки страницы в секундах
+  expected-result: |
+    Вкладка Network показывает общее время загрузки страницы менее 3000 мс (3 секунд)
+
+- summary: |
+    Проверка скорости загрузки и производительности сайта
+  requirement: |
+    Сайт должен быть оптимизирован для высокой скорости загрузки и отклика
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Подключение к стабильному интернету
+    Открыт DevTools (F12)
+  test-data: |
+    empty
+  steps:
+    - Перейти на вкладку Lighthouse в DevTools
+    - Убедиться, что включён пункт "Navigation(Default)"
+    - Убедиться, что выбран режим "Desktop"
+    - Убедиться, что включён пункт "Performance"
+    - Нажать кнопку "Analyze page load"
+    - Дождаться окончания анализа и получить метрики
+  expected-result: |
+    Общая производительность Performance Score в Lighthouse находится в зелёной зоне (90–100)
+
+- summary: |
+    Проверка, что сайт корректно отображается и функционирует на различных устройствах
+  requirement: |
+    Сайт должен быть адаптивным и корректно работать на различных разрешениях экрана
+  prerequisites: |
+    Открыт браузер (Chrome, Firefox, Edge и др.)
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Открыт DevTools (F12)
+  test-data: |
+    Устройства и разрешения:
+      - iPhone 12 (390×844 пикселей)
+      - Samsung Galaxy S20 (412×915 пикселей)
+      - iPad Mini (768×1024 пикселей)
+      - Surface Duo (540×720 пикселей - двойной экран)
+      - Pixel 5 (393×851 пикселей)
+  steps:
+    - Включить эмуляцию одного из устройств в DevTools
+    - Обновить страницу (Ctrl+R)
+    - Проверить:
+        - Правильное отображение логотипа и шапки сайта
+        - Кнопки "Sign in" и "Sign up" видны и не налезают друг на друга
+        - Блок "Create Game" не выходит за пределы экрана
+        - Отсутствие горизонтального скролла
+        - Масштаб страницы соответствует устройству
+        - Кнопки не мелкие и легко нажимаются
+    - Повторить проверку для всех устройств из списка
+  expected-result: |
+    На каждом устройстве:
+      - Интерфейс отображается без искажений и скролла по горизонтали
+      - Все элементы читаемы и не перекрываются
+      - Навигация и управление удобны для пальцев
+      - Масштаб страницы и адаптация работают корректно
+
+
+
