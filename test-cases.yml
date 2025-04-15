@@ -135,7 +135,7 @@
     Открыта главная страница сайта https://codebattle.hexlet.io/
     Пользователь не авторизован и не зарегистрирован
   test-data: |
-    Нет
+    empty
   steps:
     - Перейти на сайт как гость
     - Найти кнопку "Try simple battle"
@@ -154,12 +154,162 @@
   test-data: |
     Game Type = With bot
     Difficulty = Easy
-    Language = JavaScript
+    Language = Java
   steps:
     - Нажать кнопку "Create Game"
-    - Выбрать тип игры (например, с ботом)
-    - Выбрать уровень сложности
-    - Выбрать язык программирования
-    - Нажать "Submit"
+    - Выбрать уровень сложности (Level)
+    - Выбрать тип игры (например, With a bot)
+    - Выбрать время матча (Time control)
+    - Нажать "Create battle"
   expected-result: |
-    Игра успешно создается, пользователь попадает в интерфейс игры
+    Игра успешно создается
+    Пользователь попадает в интерфейс игры
+
+- summary: |
+    Проверка возможности присоединиться к открытой игре
+  requirement: |
+    Пользователь должен иметь возможность участвовать в игре
+  prerequisites: |
+    Пользователь авторизован
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    empty
+  steps:
+    - На главной странице найти раздел Lobby
+    - Найти доступную игру из списка
+    - Справа нажать кнопку "Fight"
+  expected-result: |
+    Пользователь подключается к игре и попадает в интерфейс с редактором кода
+
+- summary: |
+    Проверка возможности пользователя присоединиться к турниру
+  requirement: |
+    Пользователь должен иметь возможность участвовать в турнире
+  prerequisites: |
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Пользователь не авторизован и не зарегистрирован
+  test-data: |
+    empty
+  steps:
+    - Перейти в раздел "Tournaments"
+    - Выбрать турнир из списка
+    - Кликнуть на турнир
+  expected-result: |
+    Пользователь добавляется в список участников турнира
+    
+- summary: |
+    Успешное создание турнира с использованием всех доступных настроек
+  requirement: |
+    Пользователь должен иметь возможность создать турнир с настройкой всех параметров
+  prerequisites: |
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Пользователь не авторизован и не зарегистрирован
+  test-data: |
+    Name = My fancy tournament
+    Type = individual
+    Description = Some description
+    Start date = 30/11/2025 13:29
+    Access type = public
+    Task strategy = random_per_game
+    Score strategy = winn_loss
+    Use chat = true (отмечен)
+    Use timer = true (отмечен)
+    Task provider = level
+    Level = easy
+    Event = (оставить пустым)
+    Players limit = 64
+    Match timeout seconds = 177
+    Break duration seconds = 42
+  steps:
+    - Перейти в раздел "Tournaments"
+    - Нажать "You may want to create one"
+    - Проскрулить вниз список турниров до "Create a new tournament"
+    - Заполнить поле "Name" значением "My fancy tournament"
+    - "Выбрать Type: individual"
+    - Заполнить поле "Description" с Markdown-ссылкой
+    - "Установить дату начала: 15/04/2025 13:29"
+    - "Установить Access type: public"
+    - "Установить Task strategy: random_per_game"
+    - "Установить Score strategy: winn_loss"
+    - Отметить чекбоксы "Use chat" и "Use timer"
+    - "Выбрать Task provider: level и Level: easy"
+    - Оставить поле Event пустым
+    - Ввести "64" в Players limit
+    - Ввести "177" в Match timeout seconds
+    - Ввести "42" в Break duration seconds
+    - Нажать кнопку "Create"
+  expected-result: |
+    Турнир успешно создаётся
+    Отображается в списке активных турниров с введёнными параметрами
+    
+- summary: |
+    Проверка, что на главной странице отображается число пользователей онлайн
+  requirement: |
+    На сайте должно отображаться количество участников онлайн
+  prerequisites: |
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+    Пользователь не авторизован и не зарегистрирован
+  test-data: |
+    empty
+  steps:
+    - В шапке справа главной страницы должны отображаться игроки Online
+  expected-result: |
+    Отображается надпись вида "число игровков Online"
+
+- summary: |
+    Проверка отправки сообщений в общий чат авторизованным пользователем
+  requirement: |
+    Авторизованный пользователь должен иметь возможность отправлять сообщения в чат
+  prerequisites: |
+    Пользователь авторизован
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    Сообщение = "Hello Guys!"
+  steps:
+    - Найти поле ввода сообщения
+    - Ввести текст "Hello Guys!"
+    - Нажать "Send"
+  expected-result: |
+    Сообщение появляется в общем чате
+    C именем пользователя и временем отправки
+
+- summary: |
+    Проверка возможности удаления сообщения пользователя из чата
+  requirement: |
+    Авторизованный пользователь должен иметь возможность удалять сообщения из чата
+  prerequisites: |
+    Пользователь авторизован
+    Открыта главная страница сайта https://codebattle.hexlet.io/
+  test-data: |
+    Сообщение = "Hello Guys!"
+  steps:
+    - Найти поле ввода сообщения
+    - Ввести текст "Hello Guys!"
+    - Нажать "Send"
+    - Навести курскор на сообщение в чате и кликнуть
+    - Должно появиться окно
+    - Нажать "Delete"
+  expected-result: |
+    Сообщение удалено из общего чата
+
+- summary: |
+    Проверка возможности создать игру после авторизации
+  requirement: |
+    Пользователь должен иметь возможность создавать игру
+  prerequisites: |
+    Пользователь авторизован
+    Открыта главная страница
+  test-data: |
+    Game Type = With bot
+    Difficulty = Easy
+    Language = Java
+  steps:
+    - Нажать кнопку "Create Game"
+    - Выбрать уровень сложности (Level)
+    - Выбрать тип игры (например, With a bot)
+    - Выбрать время матча (Time control)
+    - Нажать "Create battle"
+  expected-result: |
+    Игра успешно создается
+    Пользователь попадает в интерфейс игры
+    
